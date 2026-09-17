@@ -1,4 +1,13 @@
-<title>Dossiê Jurídico</title>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dossiê Jurídico | Advocacia &amp; Consultoria</title>
+<meta name="description" content="Página de vendas para escritório de advocacia: atuação jurídica estratégica, personalizada e pautada na experiência.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink: #15181F;
@@ -130,24 +139,16 @@
     position:relative;
     border-radius:22px;
     aspect-ratio:4/4.6;
-    background:
-      radial-gradient(120% 100% at 30% 0%, rgba(224,182,98,.35), transparent 55%),
-      linear-gradient(200deg, #2A2416 0%, #1A1D25 55%, #10131A 100%);
+    background:#12141A;
     overflow:hidden;
     display:flex;align-items:center;justify-content:center;
   }
-  .hero-visual svg{width:64%;height:64%;opacity:.92;}
+  .hero-visual img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;}
   .hero-visual::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(0deg, rgba(16,19,26,.55), transparent 45%);
-  }
-  .hero-visual-label{
-    position:absolute; left:18px; bottom:16px; z-index:2;
-    font-family:var(--font-ui); font-size:11px; letter-spacing:.06em; text-transform:uppercase;
-    color:var(--text-onink-dim);
-    background:rgba(16,19,26,.55);
-    border:1px solid var(--line-onink);
-    padding:6px 12px; border-radius:999px;
+    background:
+      linear-gradient(0deg, rgba(16,19,26,.65), transparent 40%),
+      linear-gradient(200deg, rgba(224,182,98,.18), transparent 55%);
   }
 
   .stats-bar{
@@ -226,17 +227,13 @@
   @media (max-width:860px){ .auth-card{grid-template-columns:1fr;gap:30px;} }
   .auth-photo{
     aspect-ratio:1/1.1;border-radius:20px;
-    background:
-      radial-gradient(120% 100% at 70% 0%, rgba(201,154,70,.30), transparent 55%),
-      linear-gradient(200deg,#20232C,#12141A);
-    display:flex;align-items:center;justify-content:center;position:relative;
+    background:#12141A;
+    overflow:hidden;position:relative;
   }
-  .auth-photo svg{width:46%;opacity:.9;}
-  .auth-photo span{
-    position:absolute;left:14px;bottom:14px;
-    font-family:var(--font-ui);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;
-    color:var(--text-onink-dim);background:rgba(16,19,26,.55);border:1px solid var(--line-onink);
-    padding:5px 11px;border-radius:999px;
+  .auth-photo img{width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block;}
+  .auth-photo::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(200deg, rgba(201,154,70,.22), transparent 55%);
   }
   .auth-copy .eyebrow{margin-bottom:18px;}
   .auth-copy h2{font-size:clamp(26px,3vw,36px);color:var(--text-onpaper);max-width:18ch;}
@@ -283,11 +280,8 @@
   }
   ::selection{background:var(--gold);color:var(--ink);}
 </style>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
-
+</head>
+<body>
 <div class="nav-wrap">
   <nav class="pill-nav">
     <div class="brand">
@@ -325,20 +319,7 @@
           </div>
         </div>
         <div class="hero-visual">
-          <svg viewBox="0 0 200 200" fill="none" stroke="#F5F3EC" stroke-width="1.6">
-            <line x1="100" y1="18" x2="100" y2="118" stroke-width="2.4"/>
-            <circle cx="100" cy="18" r="6" stroke-width="2.4"/>
-            <line x1="55" y1="46" x2="145" y2="46" stroke-width="2.4"/>
-            <line x1="55" y1="46" x2="34" y2="96" stroke-width="1.4"/>
-            <line x1="55" y1="46" x2="76" y2="96" stroke-width="1.4"/>
-            <path d="M34 96a21 21 0 0 0 42 0Z" stroke="#E0B662" stroke-width="1.6"/>
-            <line x1="145" y1="46" x2="124" y2="96" stroke-width="1.4"/>
-            <line x1="145" y1="46" x2="166" y2="96" stroke-width="1.4"/>
-            <path d="M124 96a21 21 0 0 0 42 0Z" stroke="#E0B662" stroke-width="1.6"/>
-            <rect x="70" y="118" width="60" height="9" fill="#F5F3EC" stroke="none"/>
-            <rect x="50" y="136" width="100" height="7" stroke-width="1.2"/>
-          </svg>
-          <span class="hero-visual-label">[Foto do Advogado]</span>
+          <img src="foto-advogado.jpg" alt="[Nome do Advogado]">
         </div>
       </div>
       <div class="stats-bar">
@@ -441,11 +422,7 @@
     <span class="eyebrow">Autoridade</span>
     <div class="auth-card" style="margin-top:26px;">
       <div class="auth-photo">
-        <svg viewBox="0 0 100 100" fill="none" stroke="#F5F3EC" stroke-width="1.4">
-          <circle cx="50" cy="34" r="14" stroke="#E0B662" stroke-width="1.6"/>
-          <path d="M22 88c0-15.5 12.5-28 28-28s28 12.5 28 28" />
-        </svg>
-        <span>[Foto do Advogado]</span>
+        <img src="foto-advogado.jpg" alt="[Nome do Advogado]">
       </div>
       <div class="auth-copy">
         <h2>Experiência que se transforma em estratégia.</h2>
@@ -514,3 +491,5 @@
     </div>
   </div>
 </footer>
+</body>
+</html>
