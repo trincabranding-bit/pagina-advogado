@@ -7,7 +7,8 @@
 <meta name="description" content="Página de vendas para escritório de advocacia: atuação jurídica estratégica, personalizada e pautada na experiência.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+
 <style>
   :root{
     --ink: #15181F;
@@ -24,9 +25,9 @@
     --text-onink-dim: #A7ACB9;
     --text-onpaper: #1B1D22;
     --text-onpaper-dim: #62666F;
-    --font-head: "Sora", "Segoe UI", Arial, sans-serif;
+    --font-head: "Plus Jakarta Sans", "Segoe UI", Arial, sans-serif;
     --font-body: "Source Serif 4", Georgia, serif;
-    --font-ui: "Sora", "Segoe UI", Arial, sans-serif;
+    --font-ui: "Plus Jakarta Sans", "Segoe UI", Arial, sans-serif;
     --r-lg: 30px;
     --r-md: 16px;
   }
@@ -101,67 +102,70 @@
   @media (max-width:820px){ .nav-links{display:none;} }
   .nav-cta{padding:11px 20px;font-size:13.5px;}
 
-  /* ---- HERO ---- */
-  .hero-section{padding-top:26px;}
-  .hero-card{
-    background:linear-gradient(160deg, var(--ink) 0%, #10131A 100%);
-    border-radius:var(--r-lg);
-    padding:clamp(28px,4vw,52px);
+  /* ---- HERO (full-bleed) ---- */
+  .hero-section{
     position:relative;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
     overflow:hidden;
-  }
-  .hero-top{
-    display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;
-  }
-  @media (max-width:900px){ .hero-top{grid-template-columns:1fr;} }
-  .hero-copy .eyebrow{margin-bottom:20px;}
-  .hero-copy h1{
     color:var(--text-onink);
-    font-size:clamp(32px,4.2vw,52px);
-    line-height:1.1;
   }
-  .hero-copy .lede{
+  .hero-bg{position:absolute;inset:0;z-index:0;}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;}
+  .hero-scrim{
+    position:absolute;inset:0;z-index:1;
+    background:
+      linear-gradient(0deg, rgba(9,11,16,.92) 0%, rgba(9,11,16,.25) 38%, rgba(9,11,16,.2) 55%, rgba(9,11,16,.7) 100%),
+      linear-gradient(100deg, rgba(9,11,16,.65) 0%, rgba(9,11,16,.15) 48%, rgba(9,11,16,.05) 100%);
+  }
+  .hero-content{
+    position:relative;z-index:2;flex:1;
+    display:flex;flex-direction:column;justify-content:space-between;
+    padding:clamp(104px,13vw,148px) clamp(20px,5vw,64px) clamp(22px,3vw,34px);
+  }
+  .hero-top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;}
+  .hero-stats-inline{display:flex;gap:clamp(28px,4vw,52px);flex-wrap:wrap;}
+  .stat-inline .num{font-family:var(--font-head);font-size:clamp(24px,2.6vw,32px);font-weight:700;color:var(--text-onink);line-height:1;}
+  .stat-inline .lab{font-family:var(--font-ui);font-size:11.5px;color:var(--text-onink-dim);margin-top:6px;}
+  .hero-blurb{max-width:27ch;font-family:var(--font-ui);font-size:13px;line-height:1.65;color:var(--text-onink-dim);text-align:right;}
+  @media (max-width:700px){ .hero-blurb{display:none;} }
+
+  .hero-bottom{display:flex;flex-direction:column;gap:24px;}
+  .hero-headline-row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;}
+  .hero-headline-row .eyebrow{margin-bottom:18px;}
+  .hero-headline-row h1{
+    color:var(--text-onink);
+    max-width:14ch;
+    font-size:clamp(36px,5.4vw,64px);
+    line-height:1.06;
+  }
+  .hero-cta-block{display:flex;flex-direction:column;align-items:flex-start;gap:16px;}
+  .hero-cta-block .lede{
     font-family:var(--font-body);
     color:var(--text-onink-dim);
-    font-size:clamp(15.5px,1.6vw,17.5px);
-    line-height:1.7;
-    max-width:44ch;
-    margin-top:20px;
+    font-size:15.5px;
+    line-height:1.65;
+    max-width:34ch;
   }
-  .hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:30px;}
-  .tag-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px;}
+  .tag-row{display:flex;flex-wrap:wrap;gap:9px;}
   .tag{
     font-family:var(--font-ui);font-size:12px;font-weight:500;color:var(--text-onink-dim);
     border:1px solid var(--line-onink);border-radius:999px;padding:7px 14px;
   }
 
-  .hero-visual{
-    position:relative;
-    border-radius:22px;
-    aspect-ratio:4/4.6;
-    background:#12141A;
-    overflow:hidden;
-    display:flex;align-items:center;justify-content:center;
+  .hero-foot{
+    display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+    padding-top:22px;margin-top:26px;border-top:1px solid rgba(245,243,236,.22);
   }
-  .hero-visual img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;}
-  .hero-visual::after{
-    content:"";position:absolute;inset:0;
-    background:
-      linear-gradient(0deg, rgba(16,19,26,.65), transparent 40%),
-      linear-gradient(200deg, rgba(224,182,98,.18), transparent 55%);
-  }
+  .hero-foot-stat{display:flex;align-items:baseline;gap:8px;font-family:var(--font-ui);}
+  .hero-foot-stat .num{font-weight:700;font-size:15px;color:var(--text-onink);}
+  .hero-foot-stat .lab{font-size:11.5px;color:var(--text-onink-dim);text-transform:uppercase;letter-spacing:.04em;}
+  .hero-foot-note{font-family:var(--font-ui);font-size:11.5px;color:var(--text-onink-dim);text-transform:uppercase;letter-spacing:.05em;}
 
-  .stats-bar{
-    margin-top:clamp(28px,4vw,48px);
-    padding-top:clamp(24px,3vw,34px);
-    border-top:1px solid var(--line-onink);
-    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  @media (max-width:640px){
+    .hero-headline-row{flex-direction:column;align-items:flex-start;}
   }
-  @media (max-width:700px){ .stats-bar{grid-template-columns:repeat(2,1fr);} }
-  .stat{display:flex;align-items:flex-start;gap:12px;}
-  .stat svg{width:22px;height:22px;color:var(--gold-bright);flex:none;margin-top:2px;}
-  .stat .num{font-family:var(--font-head);font-size:22px;font-weight:700;color:var(--text-onink);line-height:1;}
-  .stat .lab{font-family:var(--font-ui);font-size:12.5px;color:var(--text-onink-dim);margin-top:5px;}
 
   /* ---- POSICIONAMENTO ---- */
   .pos-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;margin-top:30px;}
@@ -299,46 +303,48 @@
 </div>
 
 <section class="hero-section">
-  <div class="container">
-    <div class="hero-card">
-      <div class="hero-top">
-        <div class="hero-copy">
+  <div class="hero-bg"><img src="foto-advogado.jpg" alt="[Nome do Advogado]"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-content">
+    <div class="hero-top-row">
+      <div class="hero-stats-inline">
+        <div class="stat-inline">
+          <div class="num">[XX]%</div>
+          <div class="lab">Índice de satisfação</div>
+        </div>
+        <div class="stat-inline">
+          <div class="num">[XXX]+</div>
+          <div class="lab">Casos atendidos</div>
+        </div>
+      </div>
+      <p class="hero-blurb">Transformando a complexidade jurídica em decisões mais claras e seguras para você.</p>
+    </div>
+
+    <div class="hero-bottom">
+      <div class="hero-headline-row">
+        <div>
           <span class="eyebrow onink">Advocacia &amp; Consultoria</span>
           <h1>Segurança jurídica para decisões que exigem estratégia.</h1>
-          <p class="lede">Atuação jurídica estratégica, personalizada e pautada na experiência para proteger seus interesses e conduzir cada etapa do seu caso com clareza e segurança.</p>
-          <div class="hero-actions">
-            <a class="btn btn-gold" href="#contato">
-              Agendar uma consulta
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-          </div>
+        </div>
+        <div class="hero-cta-block">
+          <a class="btn btn-gold" href="#contato">
+            Agendar uma consulta
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <p class="lede">Atuação jurídica estratégica, personalizada e pautada na experiência para proteger seus interesses.</p>
           <div class="tag-row">
             <span class="tag">Atendimento personalizado</span>
             <span class="tag">Análise individualizada</span>
-            <span class="tag">Estratégia jurídica</span>
           </div>
         </div>
-        <div class="hero-visual">
-          <img src="foto-advogado.jpg" alt="[Nome do Advogado]">
-        </div>
       </div>
-      <div class="stats-bar">
-        <div class="stat">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 10l-5 4.4L17.4 21 12 17.3 6.6 21 8 14.4 3 10l6.6-1.4Z"/></svg>
-          <div><div class="num">[XX]+</div><div class="lab">Anos de experiência</div></div>
+
+      <div class="hero-foot">
+        <div class="hero-foot-stat">
+          <span class="num">[XX]+</span>
+          <span class="lab">Anos de experiência</span>
         </div>
-        <div class="stat">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-          <div><div class="num">[XX]%</div><div class="lab">Índice de satisfação</div></div>
-        </div>
-        <div class="stat">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5V6a2 2 0 0 1 2-2h9l5 5v10.5"/><path d="M9 22V12h6v10"/></svg>
-          <div><div class="num">[XXX]+</div><div class="lab">Casos atendidos</div></div>
-        </div>
-        <div class="stat">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M12 6l-6 3M12 6l6 3M4 9l2 6a3 3 0 0 0 4 0l2-6M14 9l2 6a3 3 0 0 0 4 0l2-6"/></svg>
-          <div><div class="num">OAB/[UF]</div><div class="lab">Inscrição regular</div></div>
-        </div>
+        <span class="hero-foot-note">OAB/[UF] · Atendimento sob agendamento</span>
       </div>
     </div>
   </div>
