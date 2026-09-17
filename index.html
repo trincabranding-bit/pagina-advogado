@@ -171,16 +171,18 @@
   }
   .pos-card{
     position:relative;border-radius:var(--r-md);overflow:hidden;
-    display:flex;align-items:flex-end;padding:16px;
+    display:flex;align-items:flex-end;padding:18px 20px;
   }
   .pos-card.big{grid-row:1/3;}
   .pos-card.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;z-index:0;}
   .pos-card.photo::after{
     content:"";position:absolute;inset:0;z-index:1;
-    background:linear-gradient(0deg, rgba(9,11,16,.85) 0%, rgba(9,11,16,.15) 55%, rgba(9,11,16,.05) 100%);
+    background:linear-gradient(0deg, rgba(9,11,16,.88) 0%, rgba(9,11,16,.45) 45%, rgba(9,11,16,.1) 100%);
   }
   .pos-card.dark{background:linear-gradient(150deg,#20232C,#12141A);}
-  .pos-card span{position:relative;z-index:2;font-family:var(--font-ui);font-size:11px;font-weight:600;color:var(--text-onink);background:rgba(255,255,255,.14);backdrop-filter:blur(6px);padding:6px 12px;border-radius:999px;}
+  .pos-card-text{position:relative;z-index:2;}
+  .pos-card-text .t{display:block;font-family:var(--font-head);font-weight:700;font-size:16px;color:var(--text-onink);margin-bottom:6px;}
+  .pos-card-text .d{display:block;font-family:var(--font-ui);font-size:12.5px;line-height:1.55;color:var(--text-onink-dim);max-width:24ch;}
   @media (max-width:480px){ .pos-mosaic{aspect-ratio:1/1.3;} }
   .pos-right p{color:var(--text-onpaper-dim);font-size:16.5px;line-height:1.75;}
   .pos-rule{width:56px;height:1px;background:var(--text-onpaper-dim);opacity:.4;margin-block:24px;}
@@ -400,13 +402,22 @@
         <div class="pos-mosaic">
           <div class="pos-card big photo">
             <img src="foto-advogado-1.jpg" alt="">
-            <span>Atendimento próximo</span>
+            <div class="pos-card-text">
+              <span class="t">Atendimento próximo</span>
+              <span class="d">Análise criteriosa e atuação estratégica em cada etapa do seu caso.</span>
+            </div>
           </div>
           <div class="pos-card dark">
-            <span>Cada situação</span>
+            <div class="pos-card-text">
+              <span class="t">Cada situação</span>
+              <span class="d">Particularidades, riscos e caminhos jurídicos diferentes, avaliados com cuidado.</span>
+            </div>
           </div>
           <div class="pos-card dark">
-            <span>Nosso compromisso</span>
+            <div class="pos-card-text">
+              <span class="t">Nosso compromisso</span>
+              <span class="d">Decisões mais claras e seguras, do início ao fim do processo.</span>
+            </div>
           </div>
         </div>
       </div>
