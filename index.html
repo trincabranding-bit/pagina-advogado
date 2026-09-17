@@ -110,9 +110,11 @@
     flex-direction:column;
     overflow:hidden;
     color:var(--text-onink);
+    background:var(--ink);
   }
-  .hero-bg{position:absolute;inset:0;z-index:0;}
-  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;}
+  .hero-bg{position:absolute;left:0;right:0;bottom:0;top:96px;z-index:0;}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 8%;display:block;}
+  @media (max-width:640px){ .hero-bg{top:100px;} }
   .hero-scrim{
     position:absolute;inset:0;z-index:1;
     background:
@@ -372,11 +374,11 @@
           <h1>Segurança jurídica para decisões que exigem estratégia.</h1>
         </div>
         <div class="hero-cta-block">
+          <p class="lede">Atuação jurídica estratégica, personalizada e pautada na experiência para proteger seus interesses.</p>
           <a class="btn btn-gold" href="#contato">
             Agendar uma consulta
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <p class="lede">Atuação jurídica estratégica, personalizada e pautada na experiência para proteger seus interesses.</p>
           <div class="tag-row">
             <span class="tag">Atendimento personalizado</span>
             <span class="tag">Análise individualizada</span>
@@ -386,7 +388,7 @@
 
       <div class="hero-foot">
         <div class="hero-foot-stat">
-          <span class="num">[XX]+</span>
+          <span class="num">15+</span>
           <span class="lab">Anos de experiência</span>
         </div>
         <span class="hero-foot-note">OAB/[UF] · Atendimento sob agendamento</span>
