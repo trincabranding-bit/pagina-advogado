@@ -217,12 +217,11 @@
     display:flex;align-items:center;justify-content:center;
     background:linear-gradient(150deg,#20232C,#12141A);
   }
-  .row-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .row-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1);}
+  .area-row:hover .row-thumb img{transform:scale(1.12);}
   .row-thumb svg{width:26px;height:26px;color:var(--gold-bright);}
   .row-thumb.placeholder{background:var(--paper-2); border:1px dashed #C7C2B2;}
   .row-thumb.placeholder svg{color:#9A947F;}
-  .areas-head .btn-icon-circle{width:44px;height:44px;background:var(--paper-2);}
-  .areas-head .btn-icon-circle svg{width:17px;height:17px;color:var(--text-onpaper);}
   .row-title{font-family:var(--font-head);font-size:19px;font-weight:700;color:var(--text-onpaper);}
   .row-desc{color:var(--text-onpaper-dim);font-size:15px;line-height:1.6;}
   .areas-foot{
@@ -435,9 +434,6 @@
   <div class="container">
     <div class="areas-head reveal">
       <h2>Experiência jurídica para diferentes momentos da sua vida e do seu negócio.</h2>
-      <a class="btn-icon-circle" href="#areas" aria-label="Conheça nossas áreas">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg>
-      </a>
     </div>
 
     <div class="areas-list">
