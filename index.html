@@ -96,6 +96,8 @@
   }
   .brand{display:flex;align-items:center;gap:9px;font-family:var(--font-head);font-weight:700;font-size:16px;color:var(--text-onink);}
   .brand svg{width:22px;height:22px;color:var(--gold-bright);flex:none;}
+  .brand img.brand-logo{height:34px;width:auto;flex:none;}
+  .brand img.brand-icon{height:20px;width:20px;flex:none;}
   .nav-links{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-family:var(--font-ui);font-size:13.5px;font-weight:500;}
   .nav-links a{text-decoration:none;color:var(--text-onink-dim);transition:color .2s ease;}
   .nav-links a:hover{color:var(--text-onink);}
@@ -163,12 +165,23 @@
   .pos-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;margin-top:30px;}
   @media (max-width:860px){ .pos-grid{grid-template-columns:1fr;gap:28px;} }
   .pos-grid h2{font-size:clamp(28px,3.2vw,40px);line-height:1.16;color:var(--text-onpaper);}
-  .pos-thumb{
-    margin-top:22px;aspect-ratio:1/.62;border-radius:var(--r-md);
-    background:linear-gradient(135deg,#E7DEC9,#CDBB8E 60%, #B79A5C);
+  .pos-mosaic{
+    margin-top:24px;display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr;
+    gap:10px;aspect-ratio:1/.98;
+  }
+  .pos-card{
+    position:relative;border-radius:var(--r-md);overflow:hidden;
     display:flex;align-items:flex-end;padding:16px;
   }
-  .pos-thumb span{font-family:var(--font-ui);font-size:11px;color:#3A2F16;background:rgba(255,255,255,.55);padding:5px 10px;border-radius:999px;}
+  .pos-card.big{grid-row:1/3;}
+  .pos-card.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;z-index:0;}
+  .pos-card.photo::after{
+    content:"";position:absolute;inset:0;z-index:1;
+    background:linear-gradient(0deg, rgba(9,11,16,.85) 0%, rgba(9,11,16,.15) 55%, rgba(9,11,16,.05) 100%);
+  }
+  .pos-card.dark{background:linear-gradient(150deg,#20232C,#12141A);}
+  .pos-card span{position:relative;z-index:2;font-family:var(--font-ui);font-size:11px;font-weight:600;color:var(--text-onink);background:rgba(255,255,255,.14);backdrop-filter:blur(6px);padding:6px 12px;border-radius:999px;}
+  @media (max-width:480px){ .pos-mosaic{aspect-ratio:1/1.3;} }
   .pos-right p{color:var(--text-onpaper-dim);font-size:16.5px;line-height:1.75;}
   .pos-rule{width:56px;height:1px;background:var(--text-onpaper-dim);opacity:.4;margin-block:24px;}
   .pos-strong{
@@ -198,13 +211,16 @@
   }
   .row-num{font-family:var(--font-ui);font-size:14px;color:var(--text-onpaper-dim);}
   .row-thumb{
-    width:64px;height:64px;border-radius:14px;flex:none;
+    width:64px;height:64px;border-radius:14px;flex:none;overflow:hidden;
     display:flex;align-items:center;justify-content:center;
     background:linear-gradient(150deg,#20232C,#12141A);
   }
+  .row-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
   .row-thumb svg{width:26px;height:26px;color:var(--gold-bright);}
   .row-thumb.placeholder{background:var(--paper-2); border:1px dashed #C7C2B2;}
   .row-thumb.placeholder svg{color:#9A947F;}
+  .areas-head .btn-icon-circle{width:44px;height:44px;background:var(--paper-2);}
+  .areas-head .btn-icon-circle svg{width:17px;height:17px;color:var(--text-onpaper);}
   .row-title{font-family:var(--font-head);font-size:19px;font-weight:700;color:var(--text-onpaper);}
   .row-desc{color:var(--text-onpaper-dim);font-size:15px;line-height:1.6;}
   .areas-foot{
@@ -218,11 +234,11 @@
     background:var(--paper);
     border-radius:var(--r-lg);
     padding:clamp(28px,4vw,52px);
-    display:grid;grid-template-columns:.75fr 1.25fr;gap:52px;align-items:center;
+    display:grid;grid-template-columns:1.1fr 1fr;gap:52px;align-items:center;
   }
   @media (max-width:860px){ .auth-card{grid-template-columns:1fr;gap:30px;} }
   .auth-photo{
-    aspect-ratio:1/1.1;border-radius:20px;
+    aspect-ratio:1/.95;border-radius:var(--r-lg);
     background:#12141A;
     overflow:hidden;position:relative;
   }
@@ -245,23 +261,19 @@
   .auth-cta{margin-top:26px;}
 
   /* ---- CTA FINAL ---- */
-  .sec-cta{padding-top:0;}
-  .cta-card{
-    background:linear-gradient(150deg,#1B1E27,#0F1117);
-    border-radius:var(--r-lg);
-    padding:clamp(40px,6vw,72px) clamp(28px,5vw,64px);
-    text-align:left;
-    position:relative;overflow:hidden;
+  .eyebrow-pill{
+    display:inline-block;font-family:var(--font-ui);font-size:12.5px;font-weight:600;
+    padding:7px 16px;border:1px solid var(--text-onpaper-dim);border-radius:999px;
+    color:var(--text-onpaper-dim);margin-bottom:20px;
   }
-  .cta-card::before{
-    content:"";position:absolute;inset:0;
-    background:radial-gradient(700px 340px at 90% 110%, rgba(201,154,70,.22), transparent 60%);
+  .cta-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;
   }
-  .cta-inner{position:relative;max-width:640px;}
-  .cta-inner h2{color:var(--text-onink);font-size:clamp(28px,4vw,44px);margin-top:16px;}
-  .cta-inner p{color:var(--text-onink-dim);font-size:16.5px;line-height:1.7;margin-top:18px;max-width:52ch;}
-  .cta-inner .hero-actions{margin-top:30px;}
-  .cta-micro{margin-top:16px;font-family:var(--font-ui);font-size:12.5px;color:var(--text-onink-dim);}
+  @media (max-width:700px){ .cta-grid{grid-template-columns:1fr;gap:22px;} }
+  .cta-heading h2{color:var(--text-onpaper);font-size:clamp(32px,4.5vw,52px);line-height:1.05;}
+  .cta-side p{color:var(--text-onpaper-dim);font-size:16.5px;line-height:1.7;max-width:46ch;}
+  .cta-side .btn{margin-top:24px;}
+  .cta-micro{margin-top:16px;font-family:var(--font-ui);font-size:12.5px;color:var(--text-onpaper-dim);}
 
   /* ---- FOOTER ---- */
   footer{padding-block:52px 30px;}
@@ -286,7 +298,7 @@
     display:flex;align-items:center;justify-content:center;
     transition:opacity 1.3s ease, visibility 1.3s ease;
   }
-  #preloader svg{width:52px;height:52px;color:var(--ink);animation:preloaderPulse 1.8s ease-in-out infinite;}
+  #preloader img{width:56px;height:56px;animation:preloaderPulse 1.8s ease-in-out infinite;}
   #preloader.is-hidden{opacity:0;visibility:hidden;pointer-events:none;}
   @keyframes preloaderPulse{
     0%,100%{opacity:.35;transform:scale(.92);}
@@ -313,7 +325,7 @@
 
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
-    .reveal,.hero-bottom,#preloader svg,#preloader{
+    .reveal,.hero-bottom,#preloader img,#preloader{
       transition:none !important;animation:none !important;
       opacity:1 !important;transform:none !important;
     }
@@ -322,14 +334,13 @@
 </head>
 <body>
 <div id="preloader" aria-hidden="true">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3v18M12 6l-6 3M12 6l6 3M4 9l2 6a3 3 0 0 0 4 0l2-6M14 9l2 6a3 3 0 0 0 4 0l2-6M4 21h16"/></svg>
+  <img src="icone-logo.png" alt="">
 </div>
 
 <div class="nav-wrap">
   <nav class="pill-nav">
     <div class="brand">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v18M12 6l-6 3M12 6l6 3M4 9l2 6a3 3 0 0 0 4 0l2-6M14 9l2 6a3 3 0 0 0 4 0l2-6M4 21h16"/></svg>
-      <span>[Nome do Escritório]</span>
+      <img class="brand-logo" src="logo-advogado.png" alt="[Nome do Escritório]">
     </div>
     <ul class="nav-links">
       <li><a href="#posicionamento">Posicionamento</a></li>
@@ -383,11 +394,21 @@
 
 <section id="posicionamento">
   <div class="container">
-    <span class="eyebrow">Posicionamento</span>
     <div class="pos-grid">
       <div class="reveal">
         <h2>Seu caso não deve ser tratado como apenas mais um.</h2>
-        <div class="pos-thumb"><span>Compreensão do cenário</span></div>
+        <div class="pos-mosaic">
+          <div class="pos-card big photo">
+            <img src="foto-advogado-1.jpg" alt="">
+            <span>Atendimento próximo</span>
+          </div>
+          <div class="pos-card dark">
+            <span>Cada situação</span>
+          </div>
+          <div class="pos-card dark">
+            <span>Nosso compromisso</span>
+          </div>
+        </div>
       </div>
       <div class="pos-right reveal">
         <p class="pos-strong">Atendimento próximo. Análise criteriosa. Atuação estratégica.</p>
@@ -401,18 +422,17 @@
 
 <section class="sec-areas" id="areas">
   <div class="container">
-    <span class="eyebrow">Áreas de Atuação</span>
     <div class="areas-head reveal">
       <h2>Experiência jurídica para diferentes momentos da sua vida e do seu negócio.</h2>
-      <a class="btn btn-ghost-paper" href="#areas">Conheça nossas áreas
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      <a class="btn-icon-circle" href="#areas" aria-label="Conheça nossas áreas">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg>
       </a>
     </div>
 
     <div class="areas-list">
       <div class="area-row reveal">
         <span class="row-num">01</span>
-        <div class="row-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="8" width="18" height="12" rx="1.5"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="3" y1="13" x2="21" y2="13"/></svg></div>
+        <div class="row-thumb"><img src="foto-advogado-1.jpg" alt="" style="object-position:center 15%;"></div>
         <div class="row-title">Direito Empresarial</div>
         <div class="row-desc">Orientação jurídica para empresas, contratos, negociações e decisões estratégicas.</div>
         <a class="btn-icon-circle row-cta" href="#areas" aria-label="Saiba mais sobre Direito Empresarial">
@@ -421,7 +441,7 @@
       </div>
       <div class="area-row reveal">
         <span class="row-num">02</span>
-        <div class="row-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v3M6 6h12M6 6l-3 7a3.5 3.5 0 0 0 6 0L6 6M18 6l-3 7a3.5 3.5 0 0 0 6 0L18 6M12 21h6M12 21H6M12 17v4"/></svg></div>
+        <div class="row-thumb"><img src="foto-advogado-1.jpg" alt="" style="object-position:75% 25%;"></div>
         <div class="row-title">Direito Civil</div>
         <div class="row-desc">Atuação em questões relacionadas a contratos, relações patrimoniais, obrigações e conflitos civis.</div>
         <a class="btn-icon-circle row-cta" href="#areas" aria-label="Saiba mais sobre Direito Civil">
@@ -430,7 +450,7 @@
       </div>
       <div class="area-row reveal">
         <span class="row-num">03</span>
-        <div class="row-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg></div>
+        <div class="row-thumb"><img src="foto-advogado-1.jpg" alt="" style="object-position:25% 40%;"></div>
         <div class="row-title">Direito de Família e Sucessões</div>
         <div class="row-desc">Assessoria jurídica em divórcios, inventários, partilhas e demais questões familiares e sucessórias.</div>
         <a class="btn-icon-circle row-cta" href="#areas" aria-label="Saiba mais sobre Direito de Família">
@@ -456,8 +476,7 @@
 
 <section class="sec-autoridade" id="autoridade">
   <div class="container">
-    <span class="eyebrow">Autoridade</span>
-    <div class="auth-card reveal" style="margin-top:26px;">
+    <div class="auth-card reveal">
       <div class="auth-photo">
         <img src="foto-advogado-1.jpg" alt="[Nome do Advogado]">
       </div>
@@ -481,17 +500,17 @@
 
 <section class="sec-cta" id="contato">
   <div class="container">
-    <div class="cta-card reveal">
-      <div class="cta-inner">
-        <span class="eyebrow onink">Fale Conosco</span>
+    <div class="cta-grid reveal">
+      <div class="cta-heading">
+        <span class="eyebrow-pill">Fale Conosco</span>
         <h2>Precisa de orientação jurídica?</h2>
+      </div>
+      <div class="cta-side">
         <p>Não tome decisões importantes sem antes entender seus direitos, possibilidades e riscos. Agende uma consulta e apresente seu caso para uma análise individualizada.</p>
-        <div class="hero-actions">
-          <a class="btn btn-gold" href="#contato">
-            Agendar consulta
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </div>
+        <a class="btn btn-gold" href="#contato">
+          Agendar consulta
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
         <p class="cta-micro">Atendimento com horário previamente agendado.</p>
       </div>
     </div>
@@ -503,7 +522,7 @@
     <div class="footer-grid">
       <div>
         <div class="brand" style="color:var(--text-onpaper);margin-bottom:8px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:20px;height:20px;color:var(--gold-deep);"><path d="M12 3v18M12 6l-6 3M12 6l6 3M4 9l2 6a3 3 0 0 0 4 0l2-6M14 9l2 6a3 3 0 0 0 4 0l2-6M4 21h16"/></svg>
+          <img class="brand-icon" src="icone-logo.png" alt="">
           <span>[Nome do Escritório]</span>
         </div>
         <p style="max-width:34ch;">Atuação jurídica estratégica e personalizada, do primeiro contato à decisão final.</p>
