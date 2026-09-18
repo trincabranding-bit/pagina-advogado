@@ -4,10 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dossiê Jurídico</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
 <style>
+  @font-face{
+    font-family:"Neue Haas Grotesk Display";
+    src:url("nhg-light.woff2") format("woff2"), url("nhg-light.ttf") format("truetype");
+    font-weight:300; font-style:normal; font-display:swap;
+  }
+  @font-face{
+    font-family:"Neue Haas Grotesk Display";
+    src:url("nhg-roman.woff2") format("woff2"), url("nhg-roman.ttf") format("truetype");
+    font-weight:400; font-style:normal; font-display:swap;
+  }
+  @font-face{
+    font-family:"Neue Haas Grotesk Display";
+    src:url("nhg-medium.woff2") format("woff2"), url("nhg-medium.ttf") format("truetype");
+    font-weight:500; font-style:normal; font-display:swap;
+  }
+  @font-face{
+    font-family:"Neue Haas Grotesk Display";
+    src:url("nhg-bold.woff2") format("woff2"), url("nhg-bold.ttf") format("truetype");
+    font-weight:700; font-style:normal; font-display:swap;
+  }
   :root{
     --ink: #15181F;
     --ink-2: #1E222C;
@@ -23,9 +40,9 @@
     --text-onink-dim: #A7ACB9;
     --text-onpaper: #1B1D22;
     --text-onpaper-dim: #62666F;
-    --font-head: "Plus Jakarta Sans", "Segoe UI", Arial, sans-serif;
-    --font-body: "Source Serif 4", Georgia, serif;
-    --font-ui: "Plus Jakarta Sans", "Segoe UI", Arial, sans-serif;
+    --font-head: "Neue Haas Grotesk Display", "Helvetica Neue", Arial, sans-serif;
+    --font-body: "Neue Haas Grotesk Display", "Helvetica Neue", Arial, sans-serif;
+    --font-ui: "Neue Haas Grotesk Display", "Helvetica Neue", Arial, sans-serif;
     --r-lg: 30px;
     --r-md: 16px;
   }
@@ -35,11 +52,12 @@
     background:var(--paper);
     color:var(--text-onpaper);
     font-family:var(--font-body);
+    font-weight:300;
     -webkit-font-smoothing:antialiased;
   }
   img{max-width:100%;display:block;}
   a{color:inherit;}
-  h1,h2,h3{font-family:var(--font-head);margin:0;text-wrap:balance;font-weight:700;letter-spacing:-.01em;}
+  h1,h2,h3{font-family:var(--font-head);margin:0;text-wrap:balance;font-weight:400;letter-spacing:-.01em;}
   p{margin:0;}
   .container{max-width:1220px;margin:0 auto;padding-inline:clamp(18px,4.5vw,56px);}
   section{padding-block:clamp(56px,8vw,100px);}
