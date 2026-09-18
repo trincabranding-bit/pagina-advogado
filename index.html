@@ -187,7 +187,6 @@
   }
   .pos-card{
     position:relative;border-radius:var(--r-md);overflow:hidden;
-    display:flex;align-items:flex-end;padding:24px 22px;
     aspect-ratio:1/2.15;
   }
   @media (max-width:640px){ .pos-mosaic{grid-template-columns:1fr 1fr;} .pos-card{aspect-ratio:1/1.4;} }
@@ -202,7 +201,9 @@
     background:
       linear-gradient(0deg, rgba(9,11,16,.96) 0%, rgba(9,11,16,.72) 40%, rgba(9,11,16,.38) 75%, rgba(9,11,16,.3) 100%);
   }
-  .pos-card-text{position:relative;z-index:2;font-family:var(--font-ui);font-size:14px;font-weight:500;line-height:1.6;color:var(--text-onink);}
+  .pos-card-text{position:absolute;z-index:2;left:22px;right:22px;top:51%;font-family:var(--font-ui);font-size:14px;font-weight:500;line-height:1.6;color:var(--text-onink);}
+  @media (max-width:640px){ .pos-card-text{top:44%;} }
+  @media (max-width:420px){ .pos-card-text{top:38%;} }
   .pos-card-text strong{font-family:var(--font-ui);font-weight:500;color:var(--text-onink);}
 
   /* ---- AREAS (numbered list, editorial) ---- */
