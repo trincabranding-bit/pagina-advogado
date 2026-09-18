@@ -226,27 +226,20 @@
   .areas-foot p{color:var(--text-onpaper-dim);font-size:15px;max-width:48ch;}
 
   /* ---- AUTORIDADE ---- */
-  .sec-autoridade{background:var(--paper-2);}
+  .sec-autoridade{background:var(--paper);}
   .auth-card{
-    background:var(--paper);
-    border-radius:var(--r-lg);
-    padding:clamp(28px,4vw,52px);
-    display:grid;grid-template-columns:1.1fr 1fr;gap:52px;align-items:center;
+    display:grid;grid-template-columns:1fr 1.25fr;gap:56px;align-items:center;
   }
   @media (max-width:860px){ .auth-card{grid-template-columns:1fr;gap:30px;} }
   .auth-photo{
-    aspect-ratio:1/.95;border-radius:var(--r-lg);
+    aspect-ratio:4/4.6;border-radius:36px;
     background:#12141A;
     overflow:hidden;position:relative;
   }
+  @media (max-width:860px){ .auth-photo{order:-1;} }
   .auth-photo img{width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block;}
-  .auth-photo::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(200deg, rgba(201,154,70,.22), transparent 55%);
-  }
-  .auth-copy .eyebrow{margin-bottom:18px;}
-  .auth-copy h2{font-size:clamp(26px,3vw,36px);color:var(--text-onpaper);max-width:18ch;}
-  .auth-copy p{color:var(--text-onpaper-dim);font-size:16px;line-height:1.75;margin-top:18px;max-width:58ch;}
+  .auth-copy h2{font-size:clamp(28px,3.4vw,40px);line-height:1.15;color:var(--text-onpaper);max-width:15ch;}
+  .auth-copy p{color:var(--text-onpaper-dim);font-size:16px;line-height:1.75;margin-top:18px;max-width:46ch;}
   .sig{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);}
   .sig .name{font-family:var(--font-head);font-weight:700;font-size:17px;color:var(--text-onpaper);}
   .sig .meta{font-family:var(--font-ui);font-size:12.5px;color:var(--text-onpaper-dim);margin-top:6px;line-height:1.8;}
@@ -467,9 +460,6 @@
 <section class="sec-autoridade" id="autoridade">
   <div class="container">
     <div class="auth-card reveal">
-      <div class="auth-photo">
-        <img src="foto-advogado-1.jpg" alt="[Nome do Advogado]">
-      </div>
       <div class="auth-copy">
         <h2>Experiência que se transforma em estratégia.</h2>
         <p>Por trás de cada atendimento existe uma análise cuidadosa, conhecimento técnico e uma visão direcionada para encontrar os caminhos jurídicos mais adequados para cada situação. [Nome do Advogado], advogado inscrito na OAB/[UF] sob nº [XXXXX], atua com foco em [Área de Atuação], oferecendo atendimento personalizado e acompanhamento próximo em cada etapa.</p>
@@ -483,6 +473,9 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
+      </div>
+      <div class="auth-photo">
+        <img src="foto-advogado-1.jpg" alt="[Nome do Advogado]">
       </div>
     </div>
   </div>
